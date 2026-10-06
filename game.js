@@ -2,10 +2,12 @@ const EMOJIS = ["🐶", "🐱", "🦊", "🐼", "🐸", "🦁", "🐵", "🐙"];
 const FLIP_BACK_DELAY = 800;
 
 const board = document.getElementById("board");
+const restartButton = document.getElementById("restart");
 
 let firstCard = null;
 let secondCard = null;
 let locked = false;
+let flipBackTimer = null;
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -16,6 +18,7 @@ function shuffle(array) {
 }
 
 function createBoard() {
+  board.innerHTML = "";
   const deck = shuffle([...EMOJIS, ...EMOJIS]);
   for (const emoji of deck) {
     const card = document.createElement("button");
@@ -50,7 +53,7 @@ function checkMatch() {
     resetTurn();
   } else {
     locked = true;
-    setTimeout(() => {
+    flipBackTimer = setTimeout(() => {
       for (const card of [firstCard, secondCard]) {
         card.classList.remove("flipped");
         card.textContent = "";
@@ -61,9 +64,16 @@ function checkMatch() {
 }
 
 function resetTurn() {
+  clearTimeout(flipBackTimer);
+  flipBackTimer = null;
   firstCard = null;
   secondCard = null;
   locked = false;
 }
+
+restartButton.addEventListener("click", () => {
+  resetTurn();
+  createBoard();
+});
 
 createBoard();
