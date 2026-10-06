@@ -48,3 +48,18 @@ h1 {
 .card.matched {
   background: #d3f9d8;
 }
+
+.restart {
+  margin-top: 24px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #3b5bdb;
+  color: #fff;
+}
+
+.restart:hover {
+  background: #4c6ef5;
+}
