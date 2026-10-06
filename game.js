@@ -1,4 +1,4 @@
-const EMOJIS = ["🐶", "🐱", "🦊", "🐼", "🐸", "🦁", "🐵", "🐙"];
+const EMOJIS = ["🍕", "🍔", "🌮", "🍣", "🍩", "🍓", "🥑", "🍦"];
 const FLIP_BACK_DELAY = 800;
 
 const board = document.getElementById("board");
