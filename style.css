@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f0f2f5;
+  color: #222;
+}
+
+h1 {
+  margin: 0 0 24px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: min(90vw, 420px);
+}
+
+.card {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(28px, 9vw, 48px);
+  cursor: pointer;
+  background: #3b5bdb;
+  transition: background 0.2s;
+}
+
+.card:hover {
+  background: #4c6ef5;
+}
+
+.card.flipped,
+.card.matched {
+  background: #fff;
+  cursor: default;
+}
+
+.card.matched {
+  background: #d3f9d8;
+}
